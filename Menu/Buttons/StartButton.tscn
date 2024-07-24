@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://oqya6mraul7e"]
+
+[ext_resource type="Script" path="res://Menu/Buttons/StartButton.gd" id="2"]
+
+[node name="Start Game" type="Button"]
+flat = true
+script = ExtResource("2")
+scene_to_load = "res://Scenes/LevelOne.tscn"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+text = "Start game"
+uppercase = true
