@@ -43,6 +43,7 @@ alignment = 1
 
 [node name="Start Game" parent="Menu/CenterRow/Buttons" instance=ExtResource("1")]
 layout_mode = 2
+scene_to_load = "res://Scenes/House.tscn"
 
 [node name="OptionsButton" parent="Menu/CenterRow/Buttons" instance=ExtResource("4")]
 layout_mode = 2
@@ -59,7 +60,7 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-text = "Version INDEV v0.1
+text = "Version INDEV v0.2
 Alan, Gab, and Luka"
 
 [node name="FadeIn" parent="." instance=ExtResource("6")]
