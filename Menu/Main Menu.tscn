@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dkkt57qtqbe5a"]
+[gd_scene load_steps=10 format=3 uid="uid://dkkt57qtqbe5a"]
 
 [ext_resource type="PackedScene" uid="uid://oqya6mraul7e" path="res://Menu/Buttons/StartButton.tscn" id="1"]
 [ext_resource type="Texture2D" uid="uid://deupds7iqd2ep" path="res://Menu/background.png" id="2"]
@@ -7,6 +7,10 @@
 [ext_resource type="PackedScene" path="res://fade_in/FadeIn.tscn" id="6"]
 [ext_resource type="Script" path="res://Menu/title_screen.gd" id="8"]
 [ext_resource type="PackedScene" path="res://Menu/UISound.tscn" id="9"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wbh4d"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_s6uua"]
 
 [node name="Title Screen" type="Control"]
 layout_mode = 3
@@ -43,10 +47,12 @@ alignment = 1
 
 [node name="Start Game" parent="Menu/CenterRow/Buttons" instance=ExtResource("1")]
 layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_wbh4d")
 scene_to_load = "res://Scenes/House.tscn"
 
 [node name="OptionsButton" parent="Menu/CenterRow/Buttons" instance=ExtResource("4")]
 layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_s6uua")
 
 [node name="CenterContainer" type="CenterContainer" parent="Menu/CenterRow"]
 layout_mode = 2
