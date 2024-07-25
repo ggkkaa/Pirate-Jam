@@ -1,6 +1,7 @@
 extends Control
 
 var scene_path_to_load
+@onready var audio_player = $AudioStreamPlayer
 
 func _on_Button_pressed(scene_to_load):
 	scene_path_to_load = scene_to_load

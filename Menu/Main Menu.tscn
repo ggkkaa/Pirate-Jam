@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dkkt57qtqbe5a"]
+[gd_scene load_steps=11 format=3 uid="uid://dkkt57qtqbe5a"]
 
 [ext_resource type="PackedScene" uid="uid://oqya6mraul7e" path="res://Menu/Buttons/StartButton.tscn" id="1"]
 [ext_resource type="Texture2D" uid="uid://deupds7iqd2ep" path="res://Menu/background.png" id="2"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" path="res://Menu/Buttons/OptionsButton.tscn" id="4"]
 [ext_resource type="PackedScene" path="res://fade_in/FadeIn.tscn" id="6"]
 [ext_resource type="Script" path="res://Menu/title_screen.gd" id="8"]
+[ext_resource type="AudioStream" uid="uid://fmgjxg4budqr" path="res://Assets/Music/Title.wav" id="8_8klbo"]
 [ext_resource type="PackedScene" path="res://Menu/UISound.tscn" id="9"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wbh4d"]
@@ -66,7 +67,7 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-text = "Version INDEV v0.2
+text = "Version INDEV v0.3
 Alan, Gab, and Luka"
 
 [node name="FadeIn" parent="." instance=ExtResource("6")]
@@ -76,5 +77,11 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="UISound" parent="." instance=ExtResource("9")]
+
+[node name="MusicPlayer" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(1, 2)
+stream = ExtResource("8_8klbo")
+autoplay = true
+bus = &"Music"
 
 [connection signal="fade_finished" from="FadeIn" to="." method="_on_FadeIn_fade_finished"]
