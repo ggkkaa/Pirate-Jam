@@ -3,6 +3,8 @@
 [ext_resource type="Script" path="res://Menu/Buttons/StartButton.gd" id="2"]
 
 [node name="Start Game" type="Button"]
+offset_right = 100.0
+offset_bottom = 20.0
 flat = true
 script = ExtResource("2")
 scene_to_load = "res://Scenes/LevelOne.tscn"
