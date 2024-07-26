@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dkkt57qtqbe5a"]
+[gd_scene load_steps=14 format=3 uid="uid://dkkt57qtqbe5a"]
 
 [ext_resource type="PackedScene" uid="uid://oqya6mraul7e" path="res://Menu/Buttons/StartButton.tscn" id="1"]
 [ext_resource type="Texture2D" uid="uid://deupds7iqd2ep" path="res://Menu/background.png" id="2"]
@@ -13,13 +13,81 @@
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_s6uua"]
 
+[sub_resource type="Animation" id="Animation_mqui1"]
+resource_name = "Background"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("background:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-143, 190), Vector2(-143, 1203)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("background2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-143, -823), Vector2(-143, 190)]
+}
+
+[sub_resource type="Animation" id="Animation_td512"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("background:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-143, 190)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("background2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-139, -823)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_unjm3"]
+_data = {
+"Background": SubResource("Animation_mqui1"),
+"RESET": SubResource("Animation_td512")
+}
+
 [node name="Title Screen" type="Control"]
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("8")
 
+[node name="background2" type="Sprite2D" parent="."]
+position = Vector2(-139, -823)
+scale = Vector2(4.47, 3.968)
+texture = ExtResource("2")
+offset = Vector2(160, 80)
+
 [node name="background" type="Sprite2D" parent="."]
-position = Vector2(800, 460)
+position = Vector2(-143, 190)
+scale = Vector2(4.46973, 3.96802)
 texture = ExtResource("2")
 offset = Vector2(160, 80)
 
@@ -83,5 +151,12 @@ position = Vector2(1, 2)
 stream = ExtResource("8_8klbo")
 autoplay = true
 bus = &"Music"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_unjm3")
+}
+autoplay = "Background"
+speed_scale = 0.04
 
 [connection signal="fade_finished" from="FadeIn" to="." method="_on_FadeIn_fade_finished"]
