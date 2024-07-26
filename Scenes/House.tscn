@@ -3,6 +3,7 @@
 [ext_resource type="Script" path="res://Scenes/House.gd" id="1_6piva"]
 
 [node name="House" type="Node2D"]
+scale = Vector2(1.00964, 1.03741)
 script = ExtResource("1_6piva")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
