@@ -1,9 +1,57 @@
-[gd_scene load_steps=2 format=3 uid="uid://3wrr4si8xlth"]
+[gd_scene load_steps=7 format=3 uid="uid://3wrr4si8xlth"]
 
 [ext_resource type="Script" path="res://Scenes/House.gd" id="1_6piva"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7ghuy"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5jx32"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_yfs16"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_lsuej"]
+rough = true
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_amf48"]
+size = Vector2(1184.58, 45.6656)
 
 [node name="House" type="Node2D"]
 scale = Vector2(1.00964, 1.03741)
 script = ExtResource("1_6piva")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+position = Vector2(651.719, 105.069)
+scale = Vector2(3.86273, 4.53176)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+shape = SubResource("RectangleShape2D_7ghuy")
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+position = Vector2(510.084, 104.105)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+scale = Vector2(3.86273, 4.53176)
+shape = SubResource("CapsuleShape2D_5jx32")
+one_way_collision_margin = 1.5
+
+[node name="TextureRect" type="TextureRect" parent="RigidBody2D/CollisionShape2D"]
+offset_left = -10.5129
+offset_top = -15.1022
+offset_right = 10.4871
+offset_bottom = 14.8978
+texture = SubResource("PlaceholderTexture2D_yfs16")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+physics_material_override = SubResource("PhysicsMaterial_lsuej")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(586.349, 624.934)
+shape = SubResource("RectangleShape2D_amf48")
+
+[node name="TextureRect" type="TextureRect" parent="StaticBody2D/CollisionShape2D"]
+offset_left = -592.0
+offset_top = -25.0
+offset_right = 593.0
+offset_bottom = 23.0
+texture = SubResource("PlaceholderTexture2D_yfs16")
